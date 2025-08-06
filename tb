@@ -1,0 +1,15 @@
+module tb_signmag_to_twoscomp;
+    reg [3:0] sm;
+    wire [3:0] twos;
+
+    signmag_to_twoscomp uut(sm, twos);
+
+    initial begin
+        $dumpfile("signmag.vcd"); $dumpvars(0, tb_signmag_to_twoscomp);
+        sm = 4'b0011; #10; // +3
+        sm = 4'b1011; #10; // -3
+        sm = 4'b1001; #10; // -1
+        sm = 4'b0001; #10; // +1
+        $finish;
+    end
+endmodule
