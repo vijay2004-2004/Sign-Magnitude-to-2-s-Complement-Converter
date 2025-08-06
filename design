@@ -1,0 +1,6 @@
+module signmag_to_twoscomp(
+    input [3:0] sm,
+    output [3:0] twos
+);
+    assign twos = sm[3] ? (~sm + 1) : sm;
+endmodule
